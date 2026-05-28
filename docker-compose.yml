@@ -1,0 +1,39 @@
+services:
+  #DATABASE
+  database:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    networks:
+      - backed-network
+    volumes:
+      - postgres-data:/var/lib/postgresql
+
+  #PGAdmin
+  pgadmin:
+    image: dpage/pgadmin4:9.15
+    restart: unless-stopped
+    environment:
+        PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+        PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:80"
+    networks:
+      - backed-network
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - database
+
+networks:
+  backed-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  pgadmin-data:
