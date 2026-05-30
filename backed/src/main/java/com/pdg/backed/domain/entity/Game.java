@@ -24,7 +24,6 @@ public class Game {
     private String imageUrl;
     private String description;
     private LocalDate release;
-    private GameStatus status;
     @CreationTimestamp
     private Instant created;
     @CreationTimestamp
@@ -33,12 +32,11 @@ public class Game {
     public Game() {
     }
 
-    public Game(String title, String imageUrl, String description, LocalDate release, GameStatus status) {
+    public Game(String title, String imageUrl, String description, LocalDate release) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.description = description;
         this.release = release;
-        this.status = status;
     }
 
     public UUID getUuid() {
@@ -81,14 +79,6 @@ public class Game {
         this.release = release;
     }
 
-    public GameStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(GameStatus status) {
-        this.status = status;
-    }
-
     public Instant getCreated() {
         return created;
     }
@@ -128,7 +118,6 @@ public class Game {
             ", imageUrl =" + imageUrl + '\'' +
             ", description =" + description + '\'' +
             ", release =" + release +
-            ", status =" + status +
             ", created =" + created +
             ", updated =" + updated +
             '}';
