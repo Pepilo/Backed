@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public record GameDto(
-    UUID uuid,
+    UUID gameId,
     String title,
     String imageUrl,
     String description,

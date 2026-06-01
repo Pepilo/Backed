@@ -3,8 +3,10 @@ package com.pdg.backed.mapper.impl;
 import org.springframework.stereotype.Controller;
 
 import com.pdg.backed.domain.CreateGameRequest;
+import com.pdg.backed.domain.UpdateGameRequest;
 import com.pdg.backed.domain.dto.CreateGameRequestDto;
 import com.pdg.backed.domain.dto.GameDto;
+import com.pdg.backed.domain.dto.UpdateGameRequestDto;
 import com.pdg.backed.domain.entity.Game;
 import com.pdg.backed.mapper.GameMapper;
 
@@ -22,9 +24,19 @@ public class GameMapperImpl implements GameMapper {
     };
 
     @Override
+    public UpdateGameRequest fromDto(UpdateGameRequestDto dto) {
+        return new UpdateGameRequest(
+            dto.title(),
+            dto.imageUrl(),
+            dto.description(),
+            dto.release()
+        );
+    };
+
+    @Override
     public GameDto toDto(Game game) {
         return new GameDto(
-            game.getUuid(),
+            game.getGameId(),
             game.getTitle(),
             game.getImageUrl(),
             game.getDescription(),
@@ -33,5 +45,4 @@ public class GameMapperImpl implements GameMapper {
             game.getUpdated()
         );
     };
-
 }

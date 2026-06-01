@@ -19,7 +19,7 @@ public class Game {
 
     @Id
     @UuidGenerator
-    private UUID uuid;
+    private UUID gameId;
     private String title;
     private String imageUrl;
     private String description;
@@ -39,12 +39,12 @@ public class Game {
         this.release = release;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getGameId() {
+        return gameId;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid= uuid;
+    public void setGameId(UUID gameId) {
+        this.gameId= gameId;
     }
 
     public String getTitle() {
@@ -102,18 +102,18 @@ public class Game {
         }
 
         Game game = (Game) o;
-        return Objects.equals(uuid, game.uuid);
+        return Objects.equals(gameId, game.gameId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(uuid);
+        return Objects.hashCode(gameId);
     }
 
     @Override
     public String toString() {
         return "Game{" + 
-            "uuid =" + uuid +
+            "uuid =" + gameId +
             ", title =" + title + '\'' +
             ", imageUrl =" + imageUrl + '\'' +
             ", description =" + description + '\'' +

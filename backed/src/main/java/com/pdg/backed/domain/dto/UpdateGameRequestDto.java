@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.Length;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record CreateGameRequestDto(
+public record UpdateGameRequestDto(
     @NotBlank(message = ERROR_MESSAGE_TITLE_LENGTH)
     @Length(max = 255, message = ERROR_MESSAGE_TITLE_LENGTH)
     String title,
