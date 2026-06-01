@@ -69,7 +69,7 @@ public class GameController {
         return ResponseEntity.ok(upGameDto);
     }
 
-    @DeleteMapping(path = "/{gameId")
+    @DeleteMapping(path = "/{gameId}")
     public ResponseEntity<Void> deleteGame(
         @PathVariable UUID gameId
     ) {
