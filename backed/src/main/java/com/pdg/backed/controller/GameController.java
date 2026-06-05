@@ -65,8 +65,8 @@ public class GameController {
     ) {
         UpdateGameRequest updateGameRequest = gameMapper.fromDto(updateGameRequestDto);
         Game game = gameService.updateGame(gameId, updateGameRequest);
-        GameDto upGameDto = gameMapper.toDto(game);
-        return ResponseEntity.ok(upGameDto);
+        GameDto GameDto = gameMapper.toDto(game);
+        return ResponseEntity.ok(GameDto);
     }
 
     @DeleteMapping(path = "/{gameId}")

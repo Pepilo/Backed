@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 import com.pdg.backed.domain.CreateGameRequest;
 import com.pdg.backed.domain.UpdateGameRequest;
 import com.pdg.backed.domain.entity.Game;
-import com.pdg.backed.exception.TaskNotFoundException;
+import com.pdg.backed.exception.NotFoundException;
+
 import com.pdg.backed.repositirory.GameRepository;
 import com.pdg.backed.service.GameService;
 
@@ -41,7 +42,7 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public Game updateGame(UUID gameId, UpdateGameRequest request) {
-        Game game = gameRepository.findById(gameId).orElseThrow(() -> new TaskNotFoundException(gameId));
+        Game game = gameRepository.findById(gameId).orElseThrow(() -> new NotFoundException(gameId));
 
         game.setTitle(request.title());
         game.setImageUrl(request.imageUrl());
