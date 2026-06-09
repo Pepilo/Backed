@@ -2,11 +2,13 @@ import './App.css'
 import Home from './components/Home'
 import ListGroup from './components/ListGroup'
 import Alert from './components/Alert'
+import Button from './components/Button'
+import { useState } from 'react'
 
 const backlog = [
   "Red dead redemption 2",
   "The witcher 3",
-  "Clair obscur Expidition 33",
+  "Clair obscur Expedition 33",
   "Bloodborne",
   "Monster hunter world"
 ]
@@ -22,11 +24,15 @@ const handleSelectGame = (game: string) => {
 }
 
 function App() {
+
+  const[alertVisible, setAlertVisible] = useState(false);
+
   return (
     <>
+      <div><Button onClick={() => setAlertVisible(true)}>Se connecter</Button></div>
       <div><ListGroup games={backlog} heading="Backlog" onSelectGame={handleSelectGame}/></div>
       <div><ListGroup games={wishlist} heading="Wishlist" onSelectGame={handleSelectGame}/></div>
-      <Alert> Hello World!</Alert>
+      {alertVisible && <Alert onClick={() => setAlertVisible(false)}> Hello World!</Alert>}
     </>
   );
 }
