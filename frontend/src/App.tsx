@@ -1,6 +1,7 @@
 import './App.css'
 import Home from './components/Home'
 import ListGroup from './components/ListGroup'
+import Alert from './components/Alert'
 
 const backlog = [
   "Red dead redemption 2",
@@ -25,6 +26,7 @@ function App() {
     <>
       <div><ListGroup games={backlog} heading="Backlog" onSelectGame={handleSelectGame}/></div>
       <div><ListGroup games={wishlist} heading="Wishlist" onSelectGame={handleSelectGame}/></div>
+      <Alert> Hello World!</Alert>
     </>
   );
 }
