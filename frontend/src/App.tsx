@@ -3,6 +3,7 @@ import Home from './components/Home'
 import ListGroup from './components/ListGroup'
 import Alert from './components/Alert'
 import Button from './components/Button'
+import Navbar from './components/Navbar'
 import { useState } from 'react'
 
 const backlog = [
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <>
+      <div><Navbar/></div>
       <div><Button onClick={() => setAlertVisible(true)}>Se connecter</Button></div>
       <div><ListGroup games={backlog} heading="Backlog" onSelectGame={handleSelectGame}/></div>
       <div><ListGroup games={wishlist} heading="Wishlist" onSelectGame={handleSelectGame}/></div>
