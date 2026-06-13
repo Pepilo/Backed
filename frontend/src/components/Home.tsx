@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import Button from "./Button";
+import LinkButton from "./LinkButton";
 import ListGroup from "./ListGroup";
 import Alert from "./Alert";
 
@@ -29,10 +29,10 @@ function Home() {
 
   return (
       <>
-          <Navbar></Navbar>
+          <Navbar firstButtonLabel="Se Connecter" secondButtonLabel= "S'inscrire" firstButtonLink="login" secondButtonLink="register"></Navbar>
           <ListGroup games={backlog} heading="Backlog" onSelectGame={handleSelectGame}/>
           <ListGroup games={wishlist} heading="Wishlist" onSelectGame={handleSelectGame}/>
-          <Button onClick={() => setAlertVisible(true)}>Se connecter</Button>
+          <LinkButton onClick={() => setAlertVisible(true)}>Se connecter</LinkButton>
           {alertVisible && <Alert onClick={() => setAlertVisible(false)}> Hello World!</Alert>}
       </>
   );
